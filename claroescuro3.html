@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- Forma 3: chamando uma função no botão, definindo no script -->
+<body>
+
+    <button onclick="alterna()">Alternar tema</button>
+
+    <style>
+        body.light {
+    background-color: white;
+    color: black;
+}
+
+body.dark {
+    background-color: black;
+    color: white;
+}
+    </style>
+
+    <script>
+        
+function alterna() {
+    document.body.classList.toggle('dark');
+    document.body.classList.toggle('light');
+}
+
+    </script>
+    
+</body>
+</html>
