@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de Senha</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 30px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        input[type="password"],
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input[type="password"]:focus,
+        input[type="text"]:focus {
+            border-color: #4CAF50;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .toggle-btn {
+            background-color: #f1f1f1;
+            color: #333;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-btn:hover {
+            background-color: #ddd;
+        }
+
+        .resultado {
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .resultado.green {
+            color: #4CAF50;
+        }
+
+        .resultado.red {
+            color: #e53935;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Verificação de Senha</h1>
+        <input type="password" id="senha" placeholder="Digite sua senha">
+        <button onclick="verificarSenha()">Verificar Senha</button>
+        <button class="toggle-btn" onclick="toggleSenha()">Mostrar/Ocultar Senha</button>
+        <div id="resultado" class="resultado"></div>
+    </div>
+
+    <script>
+        const senhaCorreta = "JavaScript123";
+
+        function verificarSenha() {
+            let senhaDigitada = document.getElementById("senha").value;
+            const resultado = document.getElementById("resultado");
+            if (senhaDigitada === senhaCorreta) {
+                resultado.innerText = "Senha válida!";
+                resultado.classList.add("green");
+                resultado.classList.remove("red");
+            } else {
+                resultado.innerText = "Senha inválida!";
+                resultado.classList.add("red");
+                resultado.classList.remove("green");
+            }
+        }
+
+        function toggleSenha() {
+            let senhaInput = document.getElementById("senha");
+            let tipoSenha = senhaInput.type;
+
+            if (tipoSenha === "password") {
+                senhaInput.type = "text";
+            } else {
+                senhaInput.type = "password";
+            }
+        }
+    </script>
+
+</body>
+</html>
